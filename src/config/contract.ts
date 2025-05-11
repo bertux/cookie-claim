@@ -5,45 +5,6 @@ export const CONTRACT_ABI = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "newAdmin",
-				"type": "address"
-			}
-		],
-		"name": "addAdmin",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "members",
-				"type": "address[]"
-			}
-		],
-		"name": "addMembers",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address[]",
-				"name": "accounts",
-				"type": "address[]"
-			}
-		],
-		"name": "addToBlacklist",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
 				"name": "initialAdmin",
 				"type": "address"
 			}
@@ -88,13 +49,6 @@ export const CONTRACT_ABI = [
 		"inputs": [],
 		"name": "ContractIsPaused",
 		"type": "error"
-	},
-	{
-		"inputs": [],
-		"name": "emergencyWithdrawAll",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"inputs": [
@@ -348,19 +302,6 @@ export const CONTRACT_ABI = [
 		"type": "event"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "admin",
-				"type": "address"
-			}
-		],
-		"name": "removeAdmin",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"anonymous": false,
 		"inputs": [
 			{
@@ -372,45 +313,6 @@ export const CONTRACT_ABI = [
 		],
 		"name": "RemovedFromBlacklist",
 		"type": "event"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "account",
-				"type": "address"
-			}
-		],
-		"name": "removeFromBlacklist",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "member",
-				"type": "address"
-			}
-		],
-		"name": "removeMember",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "bool",
-				"name": "_isPaused",
-				"type": "bool"
-			}
-		],
-		"name": "setPaused",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
 	},
 	{
 		"anonymous": false,
@@ -461,14 +363,66 @@ export const CONTRACT_ABI = [
 		"type": "fallback"
 	},
 	{
-		"inputs": [
+		"inputs": [],
+		"name": "INITIAL_ADMIN",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "MAX_NOTE_LENGTH",
+		"outputs": [
 			{
 				"internalType": "uint256",
-				"name": "newAmount",
+				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "updateWhitelistWithdrawalAmount",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "TIME_INTERVAL",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "WHITELIST_WITHDRAWAL_AMOUNT",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newAdmin",
+				"type": "address"
+			}
+		],
+		"name": "addAdmin",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -476,19 +430,35 @@ export const CONTRACT_ABI = [
 	{
 		"inputs": [
 			{
-				"internalType": "string",
-				"name": "note",
-				"type": "string"
+				"internalType": "address[]",
+				"name": "members",
+				"type": "address[]"
 			}
 		],
-		"name": "withdrawAsWhitelisted",
+		"name": "addMembers",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"stateMutability": "payable",
-		"type": "receive"
+		"inputs": [
+			{
+				"internalType": "address[]",
+				"name": "accounts",
+				"type": "address[]"
+			}
+		],
+		"name": "addToBlacklist",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "emergencyWithdrawAll",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	},
 	{
 		"inputs": [],
@@ -511,19 +481,6 @@ export const CONTRACT_ABI = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "INITIAL_ADMIN",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -619,62 +576,105 @@ export const CONTRACT_ABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "MAX_NOTE_LENGTH",
-		"outputs": [
+		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "admin",
+				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "removeAdmin",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "TIME_INTERVAL",
-		"outputs": [
+		"inputs": [
 			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
+				"internalType": "address",
+				"name": "account",
+				"type": "address"
 			}
 		],
-		"stateMutability": "view",
+		"name": "removeFromBlacklist",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "WHITELIST_WITHDRAWAL_AMOUNT",
-		"outputs": [
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "member",
+				"type": "address"
+			}
+		],
+		"name": "removeMember",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "bool",
+				"name": "_isPaused",
+				"type": "bool"
+			}
+		],
+		"name": "setPaused",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
 			{
 				"internalType": "uint256",
-				"name": "",
+				"name": "newAmount",
 				"type": "uint256"
 			}
 		],
-		"stateMutability": "view",
+		"name": "updateWhitelistWithdrawalAmount",
+		"outputs": [],
+		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "note",
+				"type": "string"
+			}
+		],
+		"name": "withdrawAsWhitelisted",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
 	}
 ];
 
 export const CONTRACT_ERRORS = {
-  AdminError: "Administrative action failed",
-  BatchSizeError: "Invalid batch size for operation",
-  BlacklistedError: "Account is blacklisted",
-  ContractIsPaused: "Contract is currently paused",
-  InsufficientBalance: "Contract has insufficient balance",
-  InvalidAddress: "Invalid address provided",
-  InvalidNote: "Invalid note format",
-  InvalidNoteLength: "Note length must be between 20 and 1000 characters",
-  MemberError: "Member operation failed",
-  NotAdminError: "Caller is not an admin",
-  NotAllowedError: "You are not eligible for withdrawal",
-  ReentrantCall: "Transaction in progress",
-  TimeIntervalError: "Please wait for the withdrawal period to end",
-  TransferFailed: "Transfer operation failed",
-  WithdrawalError: "Withdrawal operation failed"
+	AdminError: "Administrative action failed",
+	BatchSizeError: "Invalid batch size for operation",
+	BlacklistedError: "Account is blacklisted",
+	ContractIsPaused: "Contract is currently paused",
+	InsufficientBalance: "Contract has insufficient balance",
+	InvalidAddress: "Invalid address provided",
+	InvalidNote: "Invalid note format",
+	InvalidNoteLength: "Note length must be between 20 and 1000 characters",
+	MemberError: "Member operation failed",
+	NotAdminError: "Caller is not an admin",
+	NotAllowedError: "You are not eligible for withdrawal",
+	ReentrantCall: "Transaction in progress",
+	TimeIntervalError: "Please wait for the withdrawal period to end",
+	TransferFailed: "Transfer operation failed",
+	WithdrawalError: "Withdrawal operation failed"
 } as const;
 
 export const MAX_NOTE_LENGTH = 1000;
