@@ -9,9 +9,10 @@ import { useChainId, useReadContract } from "wagmi";
 // Supported networks with their block explorers
 const NETWORK_EXPLORERS = {
   1: "https://etherscan.io",
-  10: "https://optimistic.etherscan.io",
+  10: "https://optimism.blockscout.com/",
   8453: "https://basescan.org",
   42161: "https://arbiscan.io",
+  11155420: "https://optimism-sepolia.blockscout.com",
 } as const;
 
 interface CookieJarPublicInfoProps {
@@ -50,7 +51,7 @@ export const CookieJarPublicInfo: React.FC<CookieJarPublicInfoProps> = ({
       ? `${
           NETWORK_EXPLORERS[chainId as keyof typeof NETWORK_EXPLORERS]
         }/address/${contractAddress}`
-      : `https://etherscan.io/address/${contractAddress}`;
+      : `https://optimism-sepolia.blockscout.com/address/${contractAddress}`;
 
   // Loading state
   if (isBalanceLoading || isWithdrawalLoading || isClaimPeriodLoading) {
