@@ -27,10 +27,10 @@ function App() {
               Powered by{" "}
               <a
                 target="_blank"
-                href="https://allo.capital"
+                href="https://github.com/bertux/cookie-claim"
                 className="text-blue-500"
               >
-                allo.capital
+                bertux and coi
               </a>
             </span>
           </footer>
