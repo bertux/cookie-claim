@@ -27,7 +27,7 @@ const config = createConfig({
     ),
     [mainnet.id]: http(`https://eth-mainnet.g.alchemy.com/v2/${alchemyKey}`), // Use mainnet for ENS
   },
-});
+}) as any; // Type assertion pour éviter l'erreur de type
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

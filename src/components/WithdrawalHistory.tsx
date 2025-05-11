@@ -95,8 +95,7 @@ function WithdrawalHistoryItem({
   const { data: timestamp } = useBlockTimestamp(provider, event.blockNumber);
   const { data: ensName } = useEnsName({
     address: event.user as `0x${string}`,
-
-    chainId: mainnet.id,
+    chainId: mainnet.id as 1,
   });
   console.log(ensName, event.user);
 
