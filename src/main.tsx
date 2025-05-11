@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createConfig, http, WagmiProvider } from "wagmi";
-import { mainnet, optimism } from "wagmi/chains"; // Changed from mainnet to optimism
+import { mainnet, optimism, optimismSepolia } from "wagmi/chains"; // TODO: Change from optimismSepolia to optimism
 import App from "./App";
 import "./styles/globals.css";
 
@@ -18,11 +18,14 @@ const { connectors } = getDefaultWallets({
 });
 
 const config = createConfig({
-  chains: [optimism, mainnet],
+  chains: [optimism, optimismSepolia],
   connectors,
   transports: {
-    [optimism.id]: http(`https://opt-mainnet.g.alchemy.com/v2/${alchemyKey}`), // Updated URL for optimism
-    [mainnet.id]: http(`https://eth-mainnet.g.alchemy.com/v2/${alchemyKey}`), // Updated URL for mainnet
+    [optimism.id]: http(`https://opt-mainnet.g.alchemy.com/v2/${alchemyKey}`),
+    [optimismSepolia.id]: http(
+      `https://opt-sepolia.g.alchemy.com/v2/${alchemyKey}`
+    ),
+    [mainnet.id]: http(`https://eth-mainnet.g.alchemy.com/v2/${alchemyKey}`), // Use mainnet for ENS
   },
 });
 
