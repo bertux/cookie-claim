@@ -83,7 +83,7 @@ export const CookieJarInterface: React.FC<WithdrawalInterfaceProps> = ({
   const { data: amt } = useReadContract({
     address: contractAddress as `0x${string}`,
     abi: CONTRACT_ABI,
-    functionName: "WITHDRAWAL_AMOUNT",
+    functionName: "WHITELIST_WITHDRAWAL_AMOUNT",
   });
 
   // Update remaining time periodically
@@ -208,7 +208,7 @@ export const CookieJarInterface: React.FC<WithdrawalInterfaceProps> = ({
       <CardHeader>
         <CardTitle>The Cookie Jar</CardTitle>
         <CardDescription>
-          Claim {amt ? formatEther(amt.toString()) : "0"} monthly
+          Claim {amt ? formatEther(amt.toString()) : "0"} weekly
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -225,7 +225,7 @@ export const CookieJarInterface: React.FC<WithdrawalInterfaceProps> = ({
               <Alert>
                 <AlertTitle>Eligible for Whitelist Claim</AlertTitle>
                 <AlertDescription>
-                  Ready to claim your monthly cookies!
+                  Ready to claim your weekly cookies!
                 </AlertDescription>
               </Alert>
               <div className="space-y-2">
@@ -252,7 +252,7 @@ export const CookieJarInterface: React.FC<WithdrawalInterfaceProps> = ({
                     <LoadingSpinner /> Processing...
                   </>
                 ) : (
-                  "GOOOO EEEEEET! 🍪"
+                  "YEEEEEET MY LOOOOOT! 🍪"
                 )}
               </Button>
             </>
