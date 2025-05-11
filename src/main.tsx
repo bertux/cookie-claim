@@ -1,24 +1,39 @@
-import { Buffer } from 'buffer'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { WagmiProvider } from 'wagmi'
+import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
+import "@rainbow-me/rainbowkit/styles.css";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { createConfig, http, WagmiProvider } from "wagmi";
+import { mainnet, optimism } from "wagmi/chains"; // Changed from mainnet to optimism
+import App from "./App";
+import "./styles/globals.css";
 
-import App from './App.tsx'
-import { config } from './wagmi.ts'
+const queryClient = new QueryClient();
 
-import './index.css'
+const alchemyKey = import.meta.env.VITE_ALCHEMY_KEY;
 
-globalThis.Buffer = Buffer
+const { connectors } = getDefaultWallets({
+  appName: "Withdrawal Interface",
+  projectId: import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID,
+});
 
-const queryClient = new QueryClient()
+const config = createConfig({
+  chains: [optimism, mainnet],
+  connectors,
+  transports: {
+    [optimism.id]: http(`https://opt-mainnet.g.alchemy.com/v2/${alchemyKey}`), // Updated URL for optimism
+    [mainnet.id]: http(`https://eth-mainnet.g.alchemy.com/v2/${alchemyKey}`), // Updated URL for mainnet
+  },
+});
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <WagmiProvider config={config}>
       <QueryClientProvider client={queryClient}>
-        <App />
+        <RainbowKitProvider>
+          <App />
+        </RainbowKitProvider>
       </QueryClientProvider>
     </WagmiProvider>
-  </React.StrictMode>,
-)
+  </React.StrictMode>
+);
