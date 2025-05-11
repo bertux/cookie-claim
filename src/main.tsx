@@ -13,7 +13,7 @@ const queryClient = new QueryClient();
 const alchemyKey = import.meta.env.VITE_ALCHEMY_KEY;
 
 const { connectors } = getDefaultWallets({
-  appName: "Withdrawal Interface",
+  appName: import.meta.env.VITE_WALLET_CONNECT_APP_NAME,
   projectId: import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID,
 });
 
