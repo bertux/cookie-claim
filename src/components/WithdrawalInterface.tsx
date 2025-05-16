@@ -223,7 +223,7 @@ export const CookieJarInterface: React.FC<WithdrawalInterfaceProps> = ({
           {isWhitelisted ? (
             <>
               <Alert>
-                <AlertTitle>Eligible for Whitelist Claim</AlertTitle>
+                <AlertTitle>Eligible for Claim</AlertTitle>
                 <AlertDescription>
                   Ready to claim your weekly cookies!
                 </AlertDescription>
